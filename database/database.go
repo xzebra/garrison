@@ -1,7 +1,6 @@
 package database
 
 import (
-	"log"
 	"runtime"
 
 	"github.com/boltdb/bolt"
@@ -15,12 +14,8 @@ func osPath(file string) string {
 	}
 }
 
-func Open() {
+func Open() (*bolt.DB, error) {
 	// Open the botnet.db data file
 	// It will be created if it doesn't exist.
-	db, err := bolt.Open(osPath("my.db"), 0600, nil)
-	if err != nil {
-		log.Fatal(err)
-	}
-	defer db.Close()
+	return bolt.Open(osPath("garrison.db"), 0600, nil)
 }

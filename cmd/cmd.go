@@ -1,8 +1,31 @@
 package cmd
 
+import "fmt"
+
+type cmdFunc func([]string) error
+
+type Cmd struct {
+	Desc string
+	Func cmdFunc
+}
+
 var (
-	commandList = map[string]string{
-		"help": "prints this help dialog showing command descriptions",
-		"quit": "exits the program",
-	}
+	commandList map[string]Cmd
+	UnknownCmd  = fmt.Errorf("Unknown command")
+	WrongArgs   = fmt.Errorf("Wrong argument value or syntax")
+	UnknownArgs = fmt.Errorf("Unknown argument")
 )
+
+func Init() {
+	commandList = map[string]Cmd{
+		"help": Cmd{helpDesc, cmdHelp},
+		"quit": Cmd{quitDesc, cmdQuit},
+	}
+}
+
+func Execute(name string, args []string) error {
+	if command, found := commandList[name]; found {
+		return command.Func(args)
+	}
+	return UnknownCmd
+}

@@ -1,8 +1,15 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+)
 
 func printTitle() {
-	fmt.Println("Test title")
-	fmt.Println("----------")
+	fmt.Println()
+	fmt.Println(" ▄▄ •  ▄▄▄· ▄▄▄  ▄▄▄  ▪  .▄▄ ·        ▐  ▄")
+	fmt.Println("▐█ ▀ ▪▐█ ▀█ ▀▄ █·▀▄ █·██ ▐█ ▀. ▪     •█▌▐█")
+	fmt.Println("▄█ ▀█▄▄█▀▀█ ▐▀▀▄ ▐▀▀▄ ▐█·▄▀▀▀█▄ ▄█▀▄ ▐█▐▐▌")
+	fmt.Println("▐█▄▪▐█▐█ ▪▐▌▐█•█▌▐█•█▌▐█▌▐█▄▪▐█▐█▌.▐▌██▐█▌")
+	fmt.Println("·▀▀▀▀  ▀  ▀ .▀  ▀.▀  ▀▀▀▀ ▀▀▀▀  ▀█▄▀▪▀▀ █▪")
+	fmt.Println()
 }
