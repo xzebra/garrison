@@ -2,31 +2,37 @@ package main
 
 import (
 	"bufio"
-	"fmt"
 	"os"
 	"strings"
 
 	"./cmd"
-	"./utils"
+	"./database"
+	"./output"
 )
 
 func main() {
 	printTitle()
+
 	cmd.Init()
+	err := database.Init()
+	if err != nil {
+		output.Error(err)
+		return
+	}
+	defer database.Close()
+
 	scanner := bufio.NewScanner(os.Stdin)
 	for {
-		utils.OutputCursor()
+		output.Cursor()
 		if !scanner.Scan() {
-			utils.OutputError(scanner.Err())
+			output.Error(scanner.Err())
 			return
 		}
 
 		input := strings.Split(scanner.Text(), " ")
 		err := cmd.Execute(input[0], input[1:])
 		if err != nil {
-			utils.OutputError(err)
+			output.Error(err)
 		}
-
-		fmt.Println()
 	}
 }

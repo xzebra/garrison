@@ -20,6 +20,8 @@ func Init() {
 	commandList = map[string]Cmd{
 		"help": Cmd{helpDesc, cmdHelp},
 		"quit": Cmd{quitDesc, cmdQuit},
+		"add":  Cmd{addDesc, cmdAdd},
+		"list": Cmd{listDesc, cmdList},
 	}
 }
 

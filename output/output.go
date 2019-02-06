@@ -1,4 +1,4 @@
-package utils
+package output
 
 import (
 	"fmt"
@@ -12,12 +12,23 @@ var (
 	addSign    = color.GreenString("[+] ")
 	removeSign = color.RedString("[-] ")
 	cursorSign = color.BlueString(":: ")
+
+	StatusOFF = color.RedString("OFF")
+	StatusON  = color.RedString("ON")
 )
 
-func OutputCursor() {
+func Cursor() {
 	fmt.Fprintf(color.Output, "%s", cursorSign)
 }
 
-func OutputError(err error) {
+func Error(err error) {
 	fmt.Fprintf(color.Output, "%s%s\n", errSign, err.Error())
+}
+
+func Added(str string) {
+	fmt.Fprintf(color.Output, "%s%s\n", addSign, str)
+}
+
+func Info(str string) {
+	fmt.Fprintf(color.Output, "%s%s\n", infoSign, str)
 }
