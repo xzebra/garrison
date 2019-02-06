@@ -22,6 +22,7 @@ func Init() {
 		"quit": Cmd{quitDesc, cmdQuit},
 		"add":  Cmd{addDesc, cmdAdd},
 		"list": Cmd{listDesc, cmdList},
+		"del":  Cmd{delDesc, cmdDel},
 	}
 }
 

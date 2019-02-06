@@ -29,6 +29,10 @@ func Added(str string) {
 	fmt.Fprintf(color.Output, "%s%s\n", addSign, str)
 }
 
+func Removed(str string) {
+	fmt.Fprintf(color.Output, "%s%s\n", removeSign, str)
+}
+
 func Info(str string) {
 	fmt.Fprintf(color.Output, "%s%s\n", infoSign, str)
 }

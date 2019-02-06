@@ -23,6 +23,7 @@ func cmdList(args []string) error {
 	if len(list) == 0 {
 		output.Info("no bots in database")
 	} else {
+		fmt.Println()
 		for i, header := range listHeaders {
 			fmt.Print(center(header, colWidth[i]) + " ")
 		}
@@ -43,6 +44,7 @@ func cmdList(args []string) error {
 			}
 			fmt.Print(center(status, colWidth[3]) + "\n")
 		}
+		fmt.Println()
 	}
 	return nil
 }

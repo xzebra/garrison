@@ -83,6 +83,15 @@ func AddBot(bot *Bot) error {
 	})
 }
 
+func RemoveBot(id uint64) error {
+	return Session.Update(func(tx *bolt.Tx) error {
+		b := tx.Bucket(bucketName)
+		// id integer representation to database key
+		key := itob(id)
+		return b.Delete(key)
+	})
+}
+
 func ListBots() ([]ListedBot, error) {
 	var list []ListedBot
 	return list, Session.View(func(tx *bolt.Tx) error {
