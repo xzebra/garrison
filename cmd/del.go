@@ -10,8 +10,8 @@ import (
 
 var (
 	delDesc   = "removes bot data from database given its id"
-	ErrNoArgs = fmt.Errorf("Insuficient arguments")
-	ErrSyntax = fmt.Errorf("Argument empty or syntax error")
+	ErrNoArgs = fmt.Errorf("insuficient arguments")
+	ErrSyntax = fmt.Errorf("argument empty or syntax error")
 )
 
 func cmdDel(args []string) error {

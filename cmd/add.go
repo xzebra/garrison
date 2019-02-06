@@ -10,10 +10,17 @@ import (
 
 var (
 	addDesc        = "adds a bot to the database\n\t[-c] only adds it if check login is successful"
-	ErrAddrInvalid = fmt.Errorf("Address not valid")
+	ErrAddrInvalid = fmt.Errorf("address not valid")
+	ErrPortInvalid = fmt.Errorf("port not valid")
 )
 
 func cmdAdd(args []string) error {
+	if len(args) != 3 {
+		return ErrNoArgs
+	}
+	if !ssh.IsValidPort(args[2]) {
+		return ErrPortInvalid
+	}
 	if !ssh.IsValidAddr(args[0]) {
 		return ErrAddrInvalid
 	}
