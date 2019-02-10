@@ -5,7 +5,7 @@ import "fmt"
 type cmdFunc func([]string) error
 
 type Cmd struct {
-	Desc string
+	Desc []string
 	Func cmdFunc
 }
 

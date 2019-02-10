@@ -10,7 +10,8 @@ import (
 )
 
 var (
-	listDesc    = "prints the table of bots stored in the database"
+	listDesc = []string{"prints the table of bots stored in the database",
+		"Usage: list"}
 	listHeaders = []string{"ID", "Address", "Port", "Status"}
 	colWidth    = []int{5, 16, 6, 6}
 )

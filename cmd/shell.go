@@ -9,7 +9,8 @@ import (
 )
 
 var (
-	shellDesc     = "interact with a client via shell control"
+	shellDesc = []string{"interact with a client via shell control",
+		"Usage: shell {id}"}
 	ErrIDInvalid  = fmt.Errorf("invalid id")
 	ErrGettingBot = fmt.Errorf("couldn't get bot from database")
 )

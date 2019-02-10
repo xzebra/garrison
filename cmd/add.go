@@ -9,7 +9,12 @@ import (
 )
 
 var (
-	addDesc        = "adds a bot to the database\n\t[-c] only adds it if check login is successful"
+	addDesc = []string{"adds a bot to the database",
+		"Usage: add {addr} [-p port] [-user user] [-c true]\n" +
+			"[-c] only adds it if check login is successful\n" +
+			"[-p] (optional port, default 22)\n" +
+			"[-user] (not required)\n" +
+			"[-pwd] (not required)"}
 	ErrAddrInvalid = fmt.Errorf("address not valid")
 	ErrPortInvalid = fmt.Errorf("port not valid")
 	ErrNoConn      = fmt.Errorf("couldn't connect to the host")

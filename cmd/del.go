@@ -9,9 +9,10 @@ import (
 )
 
 var (
-	delDesc = "removes bot data from database given its id\n" +
-		"\t[-c] delete all offline bots\n" +
-		"\t{id} [-c] delete if offline"
+	delDesc = []string{"removes bot data from database given its id",
+		"Usage: del [id] [-c true]\n" +
+			"[-c] delete all offline bots\n" +
+			"{id} [-c] delete if offline"}
 	ErrNoArgs = fmt.Errorf("insuficient arguments")
 	ErrSyntax = fmt.Errorf("argument empty or syntax error")
 )

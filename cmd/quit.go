@@ -3,7 +3,8 @@ package cmd
 import "os"
 
 var (
-	quitDesc = "exits the program"
+	quitDesc = []string{"exits the program",
+		"Usage: quit"}
 )
 
 func cmdQuit(args []string) error {
