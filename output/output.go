@@ -17,6 +17,16 @@ var (
 	StatusON  = color.RedString("ON")
 )
 
+func PrintTitle() {
+	fmt.Println()
+	fmt.Println(" ▄▄ •  ▄▄▄· ▄▄▄  ▄▄▄  ▪  .▄▄ ·        ▐  ▄")
+	fmt.Println("▐█ ▀ ▪▐█ ▀█ ▀▄ █·▀▄ █·██ ▐█ ▀. ▪     •█▌▐█")
+	fmt.Println("▄█ ▀█▄▄█▀▀█ ▐▀▀▄ ▐▀▀▄ ▐█·▄▀▀▀█▄ ▄█▀▄ ▐█▐▐▌")
+	fmt.Println("▐█▄▪▐█▐█ ▪▐▌▐█•█▌▐█•█▌▐█▌▐█▄▪▐█▐█▌.▐▌██▐█▌")
+	fmt.Println("·▀▀▀▀  ▀  ▀ .▀  ▀.▀  ▀▀▀▀ ▀▀▀▀  ▀█▄▀▪▀▀ █▪")
+	fmt.Println()
+}
+
 func Cursor() {
 	fmt.Fprintf(color.Output, "%s", cursorSign)
 }

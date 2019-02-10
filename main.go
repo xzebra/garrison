@@ -11,7 +11,7 @@ import (
 )
 
 func main() {
-	printTitle()
+	output.PrintTitle()
 
 	cmd.Init()
 	err := database.Init()

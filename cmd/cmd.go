@@ -34,10 +34,14 @@ func Execute(name string, args []string) error {
 	return UnknownCmd
 }
 
+func isFlag(arg string) bool {
+	return arg[0] == '-'
+}
+
 func parseArgs(args []string) map[string]string {
 	output := make(map[string]string)
 	for i := 0; i < len(args)-1; i++ {
-		if args[i][0] == '-' {
+		if isFlag(args[i]) {
 			output[args[i][1:]] = args[i+1]
 			i++
 		}
