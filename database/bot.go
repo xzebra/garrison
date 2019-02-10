@@ -23,6 +23,16 @@ type ListedBot struct {
 	Status bool
 }
 
+func Listed2Bot(listed *ListedBot) *Bot {
+	return &Bot{
+		Addr:   listed.Addr,
+		User:   listed.User,
+		Pwd:    listed.Pwd,
+		Port:   listed.Port,
+		Status: listed.Status,
+	}
+}
+
 func AddBot(bot *Bot) error {
 	return Session.Update(func(tx *bolt.Tx) error {
 		// Retrieve the bots bucket

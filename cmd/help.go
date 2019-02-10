@@ -1,6 +1,10 @@
 package cmd
 
-import "fmt"
+import (
+	"fmt"
+
+	"../output"
+)
 
 var (
 	helpDesc = []string{"prints this help dialog showing command descriptions",
@@ -16,7 +20,7 @@ func cmdHelp(args []string) error {
 
 	fmt.Println()
 	for name, command := range commandList {
-		fmt.Printf("%s - %s\n", name, command.Desc[0])
+		fmt.Printf("%s - %s\n", output.CenterRight(name, MaxCmdWidth), command.Desc[0])
 	}
 	fmt.Println()
 	return nil

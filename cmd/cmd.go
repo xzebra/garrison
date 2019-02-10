@@ -10,6 +10,7 @@ type Cmd struct {
 }
 
 var (
+	MaxCmdWidth = 6
 	commandList map[string]Cmd
 	UnknownCmd  = fmt.Errorf("Unknown command")
 	WrongArgs   = fmt.Errorf("Wrong argument value or syntax")
@@ -18,12 +19,13 @@ var (
 
 func Init() {
 	commandList = map[string]Cmd{
-		"help":  Cmd{helpDesc, cmdHelp},
-		"quit":  Cmd{quitDesc, cmdQuit},
-		"add":   Cmd{addDesc, cmdAdd},
-		"list":  Cmd{listDesc, cmdList},
-		"del":   Cmd{delDesc, cmdDel},
-		"shell": Cmd{shellDesc, cmdShell},
+		"help":   Cmd{helpDesc, cmdHelp},
+		"quit":   Cmd{quitDesc, cmdQuit},
+		"add":    Cmd{addDesc, cmdAdd},
+		"list":   Cmd{listDesc, cmdList},
+		"del":    Cmd{delDesc, cmdDel},
+		"shell":  Cmd{shellDesc, cmdShell},
+		"beacon": Cmd{beaconDesc, cmdBeacon},
 	}
 }
 

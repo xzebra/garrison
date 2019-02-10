@@ -2,6 +2,7 @@ package ssh
 
 import (
 	"strconv"
+	"sync"
 
 	"../database"
 	"golang.org/x/crypto/ssh"
@@ -22,6 +23,24 @@ func createConn(bot *database.Bot) (*ssh.Client, error) {
 	}
 
 	return ssh.Dial("tcp", bot.Addr+":"+bot.Port, config)
+}
+
+func SendCommand(bot *database.Bot, command string, wg *sync.WaitGroup, c chan bool) {
+	defer wg.Done()
+	conn, err := createConn(bot)
+	if err != nil {
+		c <- false
+	}
+	defer conn.Close()
+
+	session, err := conn.NewSession()
+	if err != nil {
+		c <- false
+	}
+	defer session.Close()
+
+	session.Start(command)
+	c <- true
 }
 
 func CheckConnection(bot *database.Bot) (bool, error) {

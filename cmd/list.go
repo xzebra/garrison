@@ -26,7 +26,7 @@ func cmdList(args []string) error {
 	} else {
 		fmt.Println()
 		for i, header := range listHeaders {
-			fmt.Print(center(header, colWidth[i]) + " ")
+			fmt.Print(output.Center(header, colWidth[i]) + " ")
 		}
 		fmt.Println()
 		for _, w := range colWidth {
@@ -35,30 +35,17 @@ func cmdList(args []string) error {
 		}
 		fmt.Println()
 		for _, bot := range list {
-			fmt.Print(center(strconv.FormatUint(bot.ID, 10), colWidth[0]) + " ")
-			fmt.Print(center(bot.Addr, colWidth[1]) + " ")
-			fmt.Print(center(bot.Port, colWidth[2]) + " ")
+			fmt.Print(output.Center(strconv.FormatUint(bot.ID, 10), colWidth[0]) + " ")
+			fmt.Print(output.Center(bot.Addr, colWidth[1]) + " ")
+			fmt.Print(output.Center(bot.Port, colWidth[2]) + " ")
 
 			status := "OFF"
 			if bot.Status {
 				status = "ON"
 			}
-			fmt.Print(center(status, colWidth[3]) + "\n")
+			fmt.Print(output.Center(status, colWidth[3]) + "\n")
 		}
 		fmt.Println()
 	}
 	return nil
-}
-
-func center(input string, width int) string {
-	var output string
-	dif := width - len(input)
-	side := dif / 2
-	if dif%2 != 0 {
-		output += " "
-	}
-	output += strings.Repeat(" ", side)
-	output += input
-	output += strings.Repeat(" ", side)
-	return output
 }

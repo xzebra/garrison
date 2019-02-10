@@ -8,7 +8,7 @@ import (
 
 var (
 	errSign    = color.RedString("[!] ")
-	infoSign   = color.YellowString("[?] ")
+	infoSign   = color.YellowString("[*] ")
 	addSign    = color.GreenString("[+] ")
 	removeSign = color.RedString("[-] ")
 	cursorSign = color.BlueString(":: ")
